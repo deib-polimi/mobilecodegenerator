@@ -90,7 +90,7 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
 	«ENDIF-»
 	«FOREACH textViews AS tv-»
 	<TextView
-        android:id="@+id/«tv.id»"
+		«EXPAND uiControl FOR tv»
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="«tv.content»" />
@@ -143,4 +143,7 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
     «ENDFOREACH-»
 </LinearLayout>
 «ENDFILE-»
+«ENDDEFINE-»
+«DEFINE uiControl FOR UiControl-»
+	android:id="@+id/«id»"
 «ENDDEFINE-»
