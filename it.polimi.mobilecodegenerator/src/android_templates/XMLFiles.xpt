@@ -136,15 +136,39 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
 		android:layout_width="«width»dp"
 		android:layout_height="«height»dp"
 		android:layout_alignParentBottom="«alignParentBottom»"
-		android:layout_alignParentEnd="«alignParentEnd»"
-		android:layout_alignParentStart="«alignParentStart»"
+		android:layout_alignParentRight="«alignParentEnd»"
+		android:layout_alignParentLeft="«alignParentStart»"
 		android:layout_alignParentTop="«alignParentTop»"
-		android:layout_marginBottom="«marginBottom»"
-		android:layout_marginEnd="«marginEnd»"
-		android:layout_marginStart="«marginStart»"
-		android:layout_marginTop="«marginTop»"
-		android:paddingBottom="«paddingBottom»"
-		android:paddingEnd="«paddingEnd»"
-		android:paddingStart="«paddingStart»"
-		android:paddingTop="«paddingTop»"
+		android:layout_marginBottom="«marginBottom»dp"
+		android:layout_marginRight="«marginEnd»dp"
+		android:layout_marginLeft="«marginStart»dp"
+		android:layout_marginTop="«marginTop»dp"
+		android:paddingBottom="«paddingBottom»dp"
+		android:paddingRight="«paddingEnd»dp"
+		android:paddingLeft="«paddingStart»dp"
+		android:paddingTop="«paddingTop»dp"
+		«IF alignTop != null-»
+	    android:layout_alignTop="@+id/«alignTop»"
+	    «ENDIF-»
+	    «IF alignBottom != null-»
+	    android:layout_alignBottom="@+id/«alignBottom»"
+	    «ENDIF-»
+	    «IF alignStart != null-»
+	    android:layout_alignLeft="@+id/«alignStart»"
+	    «ENDIF-»
+	    «IF alignEnd != null-»
+	    android:layout_alignRight="@+id/«alignEnd»"
+	    «ENDIF-»
+	    «IF below != null-»
+	    android:layout_below="@+id/«below»"
+	    «ENDIF-»
+	    «IF above != null-»
+	    android:layout_above="@+id/«above»"
+	    «ENDIF-»
+	    «IF toStartOf != null-»
+	    android:layout_toLeftOf="@+id/«toStartOf»"
+	    «ENDIF-»
+	    «IF toEndOf != null-»
+	    android:layout_toRightOf="@+id/«toEndOf»"
+	    «ENDIF-»
 «ENDDEFINE-»
