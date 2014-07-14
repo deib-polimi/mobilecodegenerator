@@ -33,17 +33,15 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
 
 «DEFINE viewController FOR ViewController-»
 «FILE this.application.name+"/res/layout/"+"activity_"+name.toLowerCase()+".xml"-»
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    >
 	
 	«FOREACH buttons AS b-»
 	<Button
-        android:id="@+id/«b.id»"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        «EXPAND uiControl FOR b»
         android:text="«b.title»" />
 	«ENDFOREACH-»
 	«IF photocameraController!=null-»
@@ -91,24 +89,18 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
 	«FOREACH textViews AS tv-»
 	<TextView
 		«EXPAND uiControl FOR tv»
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="«tv.content»" />
 	«ENDFOREACH-»
 	«FOREACH editTexts AS et-»
 	<EditText
-        android:id="@+id/«et.id»"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+		«EXPAND uiControl FOR et»
         android:ems="10"
         android:inputType="textMultiLine" >
     </EditText>
     «ENDFOREACH-»
 	«FOREACH imageViews AS iv-»
 	<ImageView
-	    android:id="@+id/«iv.id»"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
+	    «EXPAND uiControl FOR iv»
 	    «IF iv.sourceType.toString().matches("localFile") && !iv.fileUri.matches("")-»
 	    android:src="@drawable/«iv.fileUri.split("\\.").get(0)»"
 	    «ENDIF-»
@@ -122,28 +114,37 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
     «ENDIF-»
 	«FOREACH webViews AS wv-»
 	<WebView
-        android:id="@+id/«wv.id»"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        «EXPAND uiControl FOR wv» />
 	«ENDFOREACH-» 
     «FOREACH listViews AS lv-»
     <ListView
-        android:id="@+id/«lv.id»"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        «EXPAND uiControl FOR lv»>
     </ListView>
     «ENDFOREACH-»   
     «FOREACH gridViews AS gv-»
     <GridView
-        android:id="@+id/«gv.id»"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        «EXPAND uiControl FOR gv»
         android:numColumns="3">
     </GridView>
     «ENDFOREACH-»
-</LinearLayout>
+</RelativeLayout>
 «ENDFILE-»
 «ENDDEFINE-»
+
 «DEFINE uiControl FOR UiControl-»
-	android:id="@+id/«id»"
+		android:id="@+id/«id»"
+		android:layout_width="«width»dp"
+		android:layout_height="«height»dp"
+		android:layout_alignParentBottom="«alignParentBottom»"
+		android:layout_alignParentEnd="«alignParentEnd»"
+		android:layout_alignParentStart="«alignParentStart»"
+		android:layout_alignParentTop="«alignParentTop»"
+		android:layout_marginBottom="«marginBottom»"
+		android:layout_marginEnd="«marginEnd»"
+		android:layout_marginStart="«marginStart»"
+		android:layout_marginTop="«marginTop»"
+		android:paddingBottom="«paddingBottom»"
+		android:paddingEnd="«paddingEnd»"
+		android:paddingStart="«paddingStart»"
+		android:paddingTop="«paddingTop»"
 «ENDDEFINE-»
