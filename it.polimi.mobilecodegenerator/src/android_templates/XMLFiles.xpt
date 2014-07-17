@@ -95,7 +95,8 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
 	<EditText
 		«EXPAND uiControl FOR et»
         android:ems="10"
-        android:inputType="textMultiLine" >
+        android:inputType="textMultiLine"
+        android:hint="«et.placeholder»" >
     </EditText>
     «ENDFOREACH-»
 	«FOREACH imageViews AS iv-»
