@@ -89,7 +89,8 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
 	«FOREACH textViews AS tv-»
 	<TextView
 		«EXPAND uiControl FOR tv»
-        android:text="«tv.content»" />
+        android:text="«tv.content»"
+        android:gravity="center" />
 	«ENDFOREACH-»
 	«FOREACH editTexts AS et-»
 	<EditText
@@ -125,7 +126,7 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
     «FOREACH gridViews AS gv-»
     <GridView
         «EXPAND uiControl FOR gv»
-        android:numColumns="3">
+        android:numColumns="5">
     </GridView>
     «ENDFOREACH-»
 </RelativeLayout>
@@ -140,10 +141,30 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
 		android:layout_alignParentRight="«alignParentEnd»"
 		android:layout_alignParentLeft="«alignParentStart»"
 		android:layout_alignParentTop="«alignParentTop»"
-		android:layout_marginBottom="«marginBottom»dp"
-		android:layout_marginRight="«marginEnd»dp"
+		«IF alignStart == null &&
+			alignEnd == null &&
+			toStartOf == null &&
+			toEndOf == null &&
+			!alignParentStart &&
+			!alignParentEnd
+			-»
+		android:layout_marginLeft="«posX + marginStart»dp"	
+		«ELSE»
 		android:layout_marginLeft="«marginStart»dp"
+		«ENDIF-»
+		«IF alignTop == null &&
+			alignBottom == null &&
+			below == null &&
+			above == null &&
+			!alignParentTop &&
+			!alignParentBottom
+			-»
+		android:layout_marginTop="«posY + marginTop»dp"	
+		«ELSE»
 		android:layout_marginTop="«marginTop»dp"
+		«ENDIF-»
+		android:layout_marginRight="«marginEnd»dp"
+		android:layout_marginBottom="«marginBottom»dp"
 		android:paddingBottom="«paddingBottom»dp"
 		android:paddingRight="«paddingEnd»dp"
 		android:paddingLeft="«paddingStart»dp"

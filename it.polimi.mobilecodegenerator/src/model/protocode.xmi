@@ -3,17 +3,35 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:metamodel="http://metamodel/1.0" xsi:schemaLocation="http://metamodel/1.0 ../metamodel/metamodel.ecore" name="newApp" companyIdentifier="it.polimi">
-    <viewControllers name="ciao" launcher="true"/>
-    <viewControllers name="prova" launcher="false"/>
+    <viewControllers name="ciao" launcher="true">
+        <buttons id="jdtButton" posX="24.615384615384617" posY="8.172661870503598" paddingTop="0" paddingBottom="0" paddingStart="0" paddingEnd="0" marginTop="0" marginBottom="0" marginStart="0" marginEnd="0" alignParentTop="false" alignParentBottom="false" alignParentStart="false" alignParentEnd="false" width="200" height="30" title="DummyButtonName"/>
+        <textViews id="kofuLabel" posX="45.12820512820513" posY="73.55395683453237" paddingTop="0" paddingBottom="0" paddingStart="0" paddingEnd="0" marginTop="0" marginBottom="0" marginStart="0" marginEnd="0" alignParentTop="false" alignParentBottom="false" alignParentStart="true" alignParentEnd="true" width="125" height="30" below="jdtButton" content="Dummy Label"/>
+        <gridViews id="mhbqGridView" posX="53.333333333333336" posY="134.84892086330936" paddingTop="0" paddingBottom="0" paddingStart="0" paddingEnd="0" marginTop="0" marginBottom="0" marginStart="0" marginEnd="0" alignParentTop="false" alignParentBottom="false" alignParentStart="true" alignParentEnd="true" width="130" height="200" below="kofuLabel">
+            <gridViewCells title="ciao"/>
+            <gridViewCells title="ciao2"/>
+        </gridViews>
+        <listViews id="uovhListView" posX="45.12820512820513" posY="294.2158273381295" paddingTop="0" paddingBottom="0" paddingStart="0" paddingEnd="0" marginTop="0" marginBottom="0" marginStart="0" marginEnd="0" alignParentTop="false" alignParentBottom="true" alignParentStart="true" alignParentEnd="true" width="130" height="200" below="mhbqGridView">
+            <clickListener>
+                <navigation destination="ciao2"/>
+            </clickListener>
+            <listViewCells title="ciao1"/>
+            <listViewCells title="ciao2"/>
+            <listViewCells title="ciao3"/>
+        </listViews>
+    </viewControllers>
+    <viewControllers name="ciao2" launcher="false">
+        <buttons id="dabpButton" posX="92.40347582481586" posY="58.6323871018447" paddingTop="0" paddingBottom="0" paddingStart="0" paddingEnd="0" marginTop="0" marginBottom="0" marginStart="0" marginEnd="0" alignParentTop="false" alignParentBottom="false" alignParentStart="false" alignParentEnd="false" width="125" height="30" title="Torna indietro">
+            <clickListener>
+                <navigation destination="ciao"/>
+            </clickListener>
+        </buttons>
+    </viewControllers>
     <menu>
-        <menuItems title="ciao122" id="ciao123">
+        <menuItems title="ciao1" id="ciao1">
             <navigation destination="ciao"/>
         </menuItems>
         <menuItems title="ciao2" id="ciao2">
-            <navigation destination="prova"/>
-        </menuItems>
-        <menuItems title="caio4" id="caio4">
-            <navigation destination="prova"/>
+            <navigation destination="ciao2"/>
         </menuItems>
     </menu>
 </metamodel:Application>
