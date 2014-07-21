@@ -170,27 +170,27 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
 		android:paddingLeft="«paddingStart»dp"
 		android:paddingTop="«paddingTop»dp"
 		«IF alignTop != null-»
-	    android:layout_alignTop="@+id/«alignTop»"
+	    android:layout_alignTop="@+id/«alignTop.id»"
 	    «ENDIF-»
 	    «IF alignBottom != null-»
-	    android:layout_alignBottom="@+id/«alignBottom»"
+	    android:layout_alignBottom="@+id/«alignBottom.id»"
 	    «ENDIF-»
 	    «IF alignStart != null-»
-	    android:layout_alignLeft="@+id/«alignStart»"
+	    android:layout_alignLeft="@+id/«alignStart.id»"
 	    «ENDIF-»
 	    «IF alignEnd != null-»
-	    android:layout_alignRight="@+id/«alignEnd»"
+	    android:layout_alignRight="@+id/«alignEnd.id»"
 	    «ENDIF-»
 	    «IF below != null-»
-	    android:layout_below="@+id/«below»"
+	    android:layout_below="@+id/«below.id»"
 	    «ENDIF-»
 	    «IF above != null-»
-	    android:layout_above="@+id/«above»"
+	    android:layout_above="@+id/«above.id»"
 	    «ENDIF-»
 	    «IF toStartOf != null-»
-	    android:layout_toLeftOf="@+id/«toStartOf»"
+	    android:layout_toLeftOf="@+id/«toStartOf.id»"
 	    «ENDIF-»
 	    «IF toEndOf != null-»
-	    android:layout_toRightOf="@+id/«toEndOf»"
+	    android:layout_toRightOf="@+id/«toEndOf.id»"
 	    «ENDIF-»
 «ENDDEFINE-»
