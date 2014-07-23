@@ -26,5 +26,12 @@
             </clickListener>
         </buttons>
     </viewControllers>
-    <menu/>
+    <menu>
+        <menuItems title="ciao1" id="ciao1">
+            <navigation destination="ciao"/>
+        </menuItems>
+        <menuItems title="ciao2" id="ciao2">
+            <navigation destination="ciao2"/>
+        </menuItems>
+    </menu>
 </metamodel:Application>
