@@ -1,0 +1,129 @@
+«IMPORT metamodel»
+«DEFINE constraints FOR ViewController-»
+<constraints>
+	«FOREACH buttons AS b-»
+        «EXPAND siblingConstraints FOR b»
+        «EXPAND parentContraints FOR b»
+	«ENDFOREACH-»
+	«FOREACH textViews AS tv-»
+		«EXPAND siblingConstraints FOR tv»
+        «EXPAND parentContraints FOR tv»
+	«ENDFOREACH-»
+	«FOREACH editTexts AS et-»
+		«EXPAND siblingConstraints FOR et»
+        «EXPAND parentContraints FOR et»
+    «ENDFOREACH-»
+	«FOREACH imageViews AS iv-»
+		«EXPAND siblingConstraints FOR iv»
+        «EXPAND parentContraints FOR iv»
+    «ENDFOREACH-»
+    «IF videoView!=null-»
+		«EXPAND siblingConstraints FOR videoView»
+        «EXPAND parentContraints FOR videoView»
+    «ENDIF-»
+	«FOREACH webViews AS wv-»
+		«EXPAND siblingConstraints FOR wv»
+        «EXPAND parentContraints FOR wv»
+	«ENDFOREACH-» 
+    «FOREACH listViews AS lv-»
+    	«EXPAND siblingConstraints FOR lv»
+        «EXPAND parentContraints FOR lv»
+    «ENDFOREACH-»   
+    «FOREACH gridViews AS gv-»
+    	«EXPAND siblingConstraints FOR gv»
+        «EXPAND parentContraints FOR gv»
+    «ENDFOREACH-»
+    «IF photocameraController!=null-»
+	«ENDIF-»
+	«IF videocameraController!=null-»
+	«ENDIF-»
+	«IF audioRecorder!=null-»
+	«ENDIF-»
+	«IF audioPlayer!=null-»
+	«ENDIF-»
+</constraints>
+«ENDDEFINE-»
+«DEFINE innerConstraints FOR UiControl-»
+<constraints>
+	«IF ((alignTop == null &&
+		!alignParentTop &&
+		below == null) ||
+		(alignBottom == null &&
+		!alignParentBottom &&
+		above == null))-»
+		<constraint firstAttribute="height" constant="«height.toInteger()»" id="«id»-height"/>
+	«ENDIF-»
+	«IF ((alignStart == null &&
+		!alignParentStart &&
+		toEndOf == null) ||
+		(alignEnd == null &&
+		!alignParentEnd &&
+		toStartOf == null))
+		-»
+		<constraint firstAttribute="width" constant="«width.toInteger()»" id="«id»-width"/>
+	«ENDIF-»
+</constraints>
+«ENDDEFINE-»
+
+
+«DEFINE siblingConstraints FOR UiControl-»
+	«IF alignTop != null-»
+    <constraint firstItem="«id»" firstAttribute="top" secondItem="«alignTop.id»" secondAttribute="top" priority="750" constant="0" id="«id»-align-top"/>
+    «ENDIF-»
+    «IF alignBottom != null-»
+    <constraint firstItem="«id»" firstAttribute="bottom" secondItem="«alignBottom.id»" secondAttribute="bottom" priority="750" constant="0" id="«id»-align-bottom"/>
+    «ENDIF-»
+    «IF alignStart != null-»
+    <constraint firstItem="«id»" firstAttribute="leading" secondItem="«alignStart.id»" secondAttribute="leading" priority="750" constant="0" id="«id»-align-start"/>
+    «ENDIF-»
+    «IF alignEnd != null-»
+    <constraint firstItem="«id»" firstAttribute="trailing" secondItem="«alignEnd.id»" secondAttribute="trailing" priority="750" constant="0" id="«id»-align-end"/>
+    «ENDIF-»
+    «IF below != null-»
+    <constraint firstItem="«id»" firstAttribute="top" secondItem="«below.id»" secondAttribute="bottom" priority="750" constant="0" id="«id»-bottom"/>
+    «ENDIF-»
+    «IF above != null-»
+    <constraint firstItem="«id»" firstAttribute="bottom" secondItem="«above.id»" secondAttribute="top" priority="750" constant="0" id="«id»-above"/>
+    «ENDIF-»
+    «IF toStartOf != null-»
+    <constraint firstItem="«id»" firstAttribute="trailing" secondItem="«toStartOf.id»" secondAttribute="leading" priority="750" constant="0" id="«id»-to-start-of"/>
+    «ENDIF-»
+    «IF toEndOf != null-»
+    <constraint firstItem="«id»" firstAttribute="leading" secondItem="«toEndOf.id»" secondAttribute="trailing" priority="750" constant="0" id="«id»-to-end-of"/>
+    «ENDIF-»
+«ENDDEFINE-»
+
+
+«DEFINE parentContraints FOR UiControl-»
+«IF alignParentTop-»
+<constraint firstItem="«id»" firstAttribute="top" secondItem="«viewController.name»-guide-top" secondAttribute="top" constant="0" id="«id»-alignParentTop"/>
+«ENDIF-»
+«IF alignParentBottom-»
+<constraint firstItem="«id»" firstAttribute="bottom" secondItem="«viewController.name»-guide-bottom" secondAttribute="bottom" constant="0" id="«id»-alignParentBottom"/>
+«ENDIF-»
+«IF alignParentStart-»
+<constraint firstItem="«id»" firstAttribute="leading" secondItem="«viewController.name»ViewID" secondAttribute="leading" constant="0" id="«id»-alignParentStart"/>
+«ENDIF-»
+«IF alignParentEnd-»
+<constraint firstItem="«id»" firstAttribute="trailing" secondItem="«viewController.name»ViewID" secondAttribute="trailing" constant="0" id="«id»-alignParentEnd"/>
+«ENDIF-»
+«IF alignTop == null &&
+	alignBottom == null &&
+	below == null &&
+	above == null &&
+	!alignParentTop &&
+	!alignParentBottom
+	-»
+<constraint firstItem="«id»" firstAttribute="top" secondItem="«viewController.name»-guide-top" secondAttribute="top" constant="«posY.toInteger()»" id="«id»-posY"/>
+«ENDIF-»
+
+«IF alignStart == null &&
+	alignEnd == null &&
+	toStartOf == null &&
+	toEndOf == null &&
+	!alignParentStart &&
+	!alignParentEnd
+	-»
+<constraint firstItem="«id»" firstAttribute="leading" secondItem="«viewController.name»ViewID" secondAttribute="leading" constant="«posX.toInteger()»" id="«id»-posX"/>
+«ENDIF-»
+«ENDDEFINE-»

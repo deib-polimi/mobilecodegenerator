@@ -251,5 +251,7 @@
         eType="#//UiControl" eKeys="#//UiControl/id"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="alignEnd" ordered="false"
         eType="#//UiControl" eKeys="#//UiControl/id"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="viewController" ordered="false"
+        eType="#//ViewController" eKeys="#//ViewController/name"/>
   </eClassifiers>
 </ecore:EPackage>

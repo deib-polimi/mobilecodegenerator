@@ -20,7 +20,7 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
 «FILE name+"/"+name+"/en.lproj/MainStoryboard.storyboard"-»
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES"
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES"
 «REM»initialViewController exists only in case viewController.size>0 and is the TabBarController if menu exists and menu.menuItems>0 (HP: one of the items references the launcher VC), otherwise is the NavigatorController of the launcher VC.«ENDREM»
 «IF viewControllers.size==0-»
 	>
@@ -45,12 +45,16 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
 		<scene sceneID="«vc.name»SceneID">
 			<objects>
 		        <viewController id="«vc.name»ViewControllerID" storyboardIdentifier="«vc.name»ViewController" customClass="«vc.name»ViewController" sceneMemberID="viewController">
+		        <layoutGuides>
+                    <viewControllerLayoutGuide type="top" id="«vc.name»-guide-top"/>
+                	<viewControllerLayoutGuide type="bottom" id="«vc.name»-guide-bottom"/>
+                </layoutGuides>
 		        	<view key="view" contentMode="scaleToFill" id="«vc.name»ViewID">
 		        		<rect key="frame" x="0.0" y="64" width="320" height="504"/>
 		                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
 		                <subviews>
 		                	«FOREACH vc.buttons AS b-»
-		                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="«b.id»">
+		                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="«b.id»">
 		                    	«EXPAND uiControl FOR b»
 		                    	<fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
 		                    	<state key="normal" title="«b.title»">
@@ -172,7 +176,7 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
                             «ENDLET-»
 		                    «ENDIF-»
 		                    «FOREACH vc.textViews AS tv-»
-		                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="«tv.content»" id="«tv.id»">
+		                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" text="«tv.content»" id="«tv.id»">
 		                        «EXPAND uiControl FOR tv»
 		                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 		                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -180,7 +184,7 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
 		                    </textView>
 		                    «ENDFOREACH-»
 		                    «FOREACH vc.editTexts AS et-»
-		                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="«et.initialContent»" id="«et.id»">
+		                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" text="«et.initialContent»" id="«et.id»">
                                 «EXPAND uiControl FOR et»
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -188,7 +192,7 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
                             </textView>
 		                    «ENDFOREACH-»
 		                    «FOREACH vc.imageViews AS iv-»
-		                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" «IF iv.sourceType.toString().matches("localFile") && !iv.fileUri.matches("")-»image="«iv.fileUri»"«ENDIF-» id="«iv.id»">
+		                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" «IF iv.sourceType.toString().matches("localFile") && !iv.fileUri.matches("")-»image="«iv.fileUri»"«ENDIF-» id="«iv.id»">
                                 «EXPAND uiControl FOR iv»
                             </imageView>
 		                    «ENDFOREACH-»
@@ -198,13 +202,13 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
                             </view>
 		                    «ENDIF-»
 		                    «FOREACH vc.webViews AS wv-»
-		                    <webView contentMode="scaleToFill" id="«wv.id»">
+		                    <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="«wv.id»">
 		                    	«EXPAND uiControl FOR wv»
 		                    	<color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
 		                    «ENDFOREACH-»
 		                    «FOREACH vc.listViews AS lv-»
-		                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="«lv.id»">
+		                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="«lv.id»">
                                 «EXPAND uiControl FOR lv»
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -235,7 +239,7 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
 		                    «ENDFOREACH-»
 		                    
 		                    «FOREACH vc.gridViews AS gv-»
-		                    <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="«gv.id»">
+		                    <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="«gv.id»">
                                 «EXPAND uiControl FOR gv»
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="«gv.id»FlowLayoutID">
@@ -273,10 +277,11 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
                                 </connections>
                             </collectionView>
                             «ENDFOREACH-»
-                            
 		                </subviews>
 		                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+		                «EXPAND ios_templates::ViewConstraints::constraints FOR vc»
 		            </view>
+		            <extendedEdge key="edgesForExtendedLayout"/>
 		      		<navigationItem key="navigationItem" id="«vc.name»ViewControllerNavigationItemID"/>
 		      		<connections>
 		      			«FOREACH vc.editTexts AS et-»
@@ -403,5 +408,6 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
 
 «DEFINE uiControl FOR UiControl-»
 <rect key="frame" x="«posX.toInteger()»" y="«posY.toInteger() + 65»" width="«width.toInteger()»" height="«height.toInteger()»"/>
-<autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>		
+<autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+«EXPAND ios_templates::ViewConstraints::innerConstraints FOR this-»		
 «ENDDEFINE-»
