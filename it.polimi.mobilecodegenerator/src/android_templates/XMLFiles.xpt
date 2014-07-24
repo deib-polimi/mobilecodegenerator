@@ -90,7 +90,7 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
 	<TextView
 		«EXPAND uiControl FOR tv»
         android:text="«tv.content»"
-        android:gravity="center" />
+        android:gravity="«tv.textAlign.toString()»" />
 	«ENDFOREACH-»
 	«FOREACH editTexts AS et-»
 	<EditText

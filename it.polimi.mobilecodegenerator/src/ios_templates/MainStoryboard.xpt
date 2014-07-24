@@ -176,7 +176,7 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
                             «ENDLET-»
 		                    «ENDIF-»
 		                    «FOREACH vc.textViews AS tv-»
-		                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" text="«tv.content»" id="«tv.id»">
+		                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="«tv.textAlign.toString()»" text="«tv.content»" id="«tv.id»">
 		                        «EXPAND uiControl FOR tv»
 		                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 		                        <fontDescription key="fontDescription" type="system" pointSize="14"/>

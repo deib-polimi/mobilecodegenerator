@@ -74,6 +74,8 @@
         defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="viewController" lowerBound="1"
         eType="#//ViewController" changeable="false" eOpposite="#//ViewController/textViews"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="textAlign" lowerBound="1"
+        eType="#//TextAlign"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Navigation">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="destination" lowerBound="1"
@@ -168,11 +170,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="viewController" lowerBound="1"
         eType="#//ViewController" changeable="false" eOpposite="#//ViewController/videoView"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="SourceType">
-    <eLiterals name="hardwareFile"/>
-    <eLiterals name="localFile" value="1"/>
-    <eLiterals name="remoteFile" value="2"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PhotocameraController">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="imageViewId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral=""/>
@@ -253,5 +250,15 @@
         eType="#//UiControl" eKeys="#//UiControl/id"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="viewController" ordered="false"
         eType="#//ViewController" eKeys="#//ViewController/name"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SourceType">
+    <eLiterals name="hardwareFile"/>
+    <eLiterals name="localFile" value="1"/>
+    <eLiterals name="remoteFile" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TextAlign">
+    <eLiterals name="Left" literal="left"/>
+    <eLiterals name="Center" value="1" literal="center"/>
+    <eLiterals name="Right" value="2" literal="right"/>
   </eClassifiers>
 </ecore:EPackage>
