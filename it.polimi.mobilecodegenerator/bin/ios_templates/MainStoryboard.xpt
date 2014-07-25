@@ -327,7 +327,7 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
                     </tabBar>
                     <connections>
                     	«FOREACH menu.menuItems AS i-» «REM»For each menuItem we create a segue to the NavigationController of the corresponding referenced ViewController (If menu.menuItems.size==0 the Menu remains isolated on the StoryBoard (no segues))«ENDREM»
-                    	<segue destination="NavigationControllerIDWithRoot«i.navigation.destination»ViewControllerID" kind="relationship" relationship="viewControllers" id="«i.id»SegueID"/>
+                    	<segue destination="NavigationControllerIDWithRoot«i.navigation.destination»ViewControllerID«i.id»" kind="relationship" relationship="viewControllers" id="«i.id»SegueID"/>
                     	«ENDFOREACH-»
                     </connections>
                 </tabBarController>
@@ -336,21 +336,21 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
         </scene>
         «FOREACH menu.menuItems AS i-» «REM»For each menuItem we create a NavigationController (which is the destination of the segue) for the referenced ViewController«ENDREM»
         <!--Navigation Controller - «i.title»-->
-		<scene sceneID="NavigationControllerSceneIDWithRoot«i.navigation.destination»ViewControllerID">
+		<scene sceneID="NavigationControllerSceneIDWithRoot«i.navigation.destination»ViewControllerID«i.id»">
             <objects>
-                <navigationController id="NavigationControllerIDWithRoot«i.navigation.destination»ViewControllerID" sceneMemberID="viewController">
+                <navigationController id="NavigationControllerIDWithRoot«i.navigation.destination»ViewControllerID«i.id»" sceneMemberID="viewController">
                 	<tabBarItem key="tabBarItem" title="«i.title»" id="«i.id»"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NavigationControllerBarIDWithRoot«i.navigation.destination»ViewControllerID">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NavigationControllerBarIDWithRoot«i.navigation.destination»ViewControllerID«i.id»">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="«i.navigation.destination»ViewControllerID" kind="relationship" relationship="rootViewController" id="SegueIDWithRoot«i.navigation.destination»ViewControllerID"/>
+                        <segue destination="«i.navigation.destination»ViewControllerID" kind="relationship" relationship="rootViewController" id="SegueIDWithRoot«i.navigation.destination»ViewControllerID«i.id»"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NavigationPlaceholderIDWithRoot«i.navigation.destination»ViewControllerID" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NavigationPlaceholderIDWithRoot«i.navigation.destination»ViewControllerID«i.id»" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
         «ENDFOREACH-»
