@@ -407,7 +407,7 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
 «ENDDEFINE-»
 
 «DEFINE uiControl FOR UiControl-»
-<rect key="frame" x="«posX.toInteger()»" y="«posY.toInteger() + 65»" width="«width.toInteger()»" height="«height.toInteger()»"/>
+<rect key="frame" x="«posX.toInteger()»" y="«posY.toInteger() + 62»" width="«width.toInteger()»" height="«height.toInteger()»"/>
 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
 «EXPAND ios_templates::ViewConstraints::innerConstraints FOR this-»		
 «ENDDEFINE-»
