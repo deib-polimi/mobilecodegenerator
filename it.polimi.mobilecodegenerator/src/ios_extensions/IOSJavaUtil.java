@@ -79,4 +79,13 @@ public class IOSJavaUtil {
 		currentY = currentY + height + Y_OFFSET;
 		return y;
 	}
+	
+	private static Integer incInt = 0;
+	
+	public static Integer getUniqueInt() {
+		Integer number = incInt;
+		incInt++;
+		
+		return number;
+	}
 }

@@ -25,3 +25,5 @@ Void copyUserFiles():JAVA ios_extensions.IOSJavaUtil.copyUserFiles();
 
 Integer getYOnStoryboard(Integer height):JAVA ios_extensions.IOSJavaUtil.getYOnStoryboard(java.lang.Integer);
 Void resetCurrentY():JAVA ios_extensions.IOSJavaUtil.resetCurrentY();
+
+Integer getUniqueInt():JAVA ios_extensions.IOSJavaUtil.getUniqueInt();

@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="ASCII"?>
-<metamodel:Application xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:metamodel="http://metamodel/1.0" xsi:schemaLocation="http://metamodel/1.0 ../metamodel/metamodel.ecore" name="newApp" companyIdentifier="it.polimi">
-    <viewControllers name="ciao" launcher="true">
-        <textViews id="Label" posX="93.33333333333333" posY="98.06498904880002" paddingTop="0" paddingBottom="0" paddingStart="0" paddingEnd="0" marginTop="0" marginBottom="0" marginStart="0" marginEnd="0" alignParentTop="false" alignParentBottom="false" alignParentStart="false" alignParentEnd="false" width="125" height="30" viewController="//@viewControllers[name='ciao']" content="Dummy Label" textAlign="right"/>
-    </viewControllers>
-    <menu/>
+<metamodel:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:metamodel="http://metamodel/1.0" xsi:schemaLocation="http://metamodel/1.0 ../metamodel/metamodel.ecore" name="newApp" companyIdentifier="it.polimi">
+  <viewControllers name="ciao" launcher="true">
+    <buttons posX="57.435898" posY="19.403118" alignParentTop="true" alignParentStart="true" alignParentEnd="true" width="125.0" height="30.0" id="kdqivButton" viewController="true" title="DummyButtonName">
+      <clickListener>
+        <navigation destination="ciao"/>
+      </clickListener>
+    </buttons>
+    <webViews posX="5.1282053" posY="50.050602" marginTop="10" marginBottom="10" marginStart="10" marginEnd="10" alignParentBottom="true" alignParentStart="true" alignParentEnd="true" width="300.0" height="100.0" id="djgWebView" viewController="true" HTMLFileName="webpage.html"/>
+    <imageViews posX="8.205129" posY="65.374344" width="300.0" height="200.0" id="ielImageView" below="//@viewControllers[name='ciao']/@videoView" above="//@viewControllers[name='ciao']/@webViews[id='djgWebView']" viewController="true" sourceType="remoteFile" fileUri="http://cdni.wired.co.uk/620x413/s_v/shutterstock_65735200.jpg"/>
+    <videoView posX="58.46154" posY="193.95753" marginBottom="10" width="200.0" height="100.0" id="gpqrVideoView" below="//@viewControllers[name='ciao']/@buttons[id='kdqivButton']" viewController="true" sourceType="localFile" fileUri="video.mp4"/>
+  </viewControllers>
+  <menu>
+    <menuItems id="menu1" title="menu1">
+      <navigation destination="ciao"/>
+    </menuItems>
+    <menuItems id="menu2" title="menu2">
+      <navigation destination="ciao"/>
+    </menuItems>
+  </menu>
 </metamodel:Application>
