@@ -4,17 +4,10 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:metamodel="http://metamodel/1.0" xsi:schemaLocation="http://metamodel/1.0 ../metamodel/metamodel.ecore" name="newApp" companyIdentifier="it.polimi">
     <viewControllers name="ciao" launcher="true">
-        <buttons id="kdqivButton" posX="0" posY="62" paddingTop="0" paddingBottom="0" paddingStart="0" paddingEnd="0" marginTop="0" marginBottom="0" marginStart="0" marginEnd="0" alignParentTop="true" alignParentBottom="false" alignParentStart="true" alignParentEnd="true" width="320" height="30" viewController="//@viewControllers[name='ciao']" title="DummyButtonName">
-            <clickListener>
-                <navigation destination="ciao"/>
-            </clickListener>
-        </buttons>
-        <webViews id="djgWebView" posX="0" posY="400" paddingTop="0" paddingBottom="0" paddingStart="0" paddingEnd="0" marginTop="10" marginBottom="10" marginStart="10" marginEnd="10" alignParentTop="false" alignParentBottom="true" alignParentStart="true" alignParentEnd="true" width="300" height="100" viewController="//@viewControllers[name='ciao']" HTMLFileName="webpage.html"/>
-        <videoView id="gpqrVideoView" posX="56.41025641025641" posY="92" paddingTop="0" paddingBottom="0" paddingStart="0" paddingEnd="0" marginTop="0" marginBottom="10" marginStart="0" marginEnd="0" alignParentTop="false" alignParentBottom="false" alignParentStart="false" alignParentEnd="false" width="200" height="100" below="//@viewControllers[name='ciao']/@buttons[id='kdqivButton']" viewController="//@viewControllers[name='ciao']" sourceType="localFile" fileUri="video.mp4"/>
-        <imageViews id="ielImageView" posX="8.205128205128204" posY="202" paddingTop="0" paddingBottom="0" paddingStart="0" paddingEnd="0" marginTop="0" marginBottom="0" marginStart="0" marginEnd="0" alignParentTop="false" alignParentBottom="false" alignParentStart="false" alignParentEnd="false" width="300" height="198" above="//@viewControllers[name='ciao']/@webViews[id='djgWebView']" below="//@viewControllers[name='ciao']/@videoView" viewController="//@viewControllers[name='ciao']" sourceType="remoteFile" fileUri="http://cdni.wired.co.uk/620x413/s_v/shutterstock_65735200.jpg"/>
+        <audioPlayer id="bqnoAudioPlayer" posX="84.1025641025641" posY="63.331176099159734" paddingTop="0" paddingBottom="0" paddingStart="0" paddingEnd="0" marginTop="0" marginBottom="0" marginStart="0" marginEnd="0" alignParentTop="true" alignParentBottom="false" alignParentStart="true" alignParentEnd="true" width="130" height="200" viewController="//@viewControllers[name='ciao']" sourceType="localFile" fileUri="audio.mp3"/>
     </viewControllers>
     <viewControllers name="viewController" launcher="false">
-        <buttons id="eeecButton" posX="89.23076923076923" posY="144.74126362972123" paddingTop="0" paddingBottom="0" paddingStart="0" paddingEnd="0" marginTop="0" marginBottom="0" marginStart="0" marginEnd="0" alignParentTop="false" alignParentBottom="false" alignParentStart="false" alignParentEnd="false" width="125" height="30" viewController="//@viewControllers[name='viewController']" title="DummyButtonName">
+        <buttons id="eeecButton" posX="89.23076923076923" posY="82.74126362972123" paddingTop="0" paddingBottom="0" paddingStart="0" paddingEnd="0" marginTop="0" marginBottom="0" marginStart="0" marginEnd="0" alignParentTop="false" alignParentBottom="false" alignParentStart="false" alignParentEnd="false" width="125" height="30" viewController="//@viewControllers[name='viewController']" title="DummyButtonName">
             <clickListener>
                 <navigation destination="ciao"/>
             </clickListener>

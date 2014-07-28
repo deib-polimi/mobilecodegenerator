@@ -127,53 +127,55 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
                             </button>
 							«ENDIF-»
 		                    «IF vc.audioPlayer!=null-»
-		                    «LET getYOnStoryboard(44) AS y-»
-		                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="«vc.name»AudioPlayerPlayButton">
-                                <rect key="frame" x="20" y="«y»" width="55" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Play">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="play:" destination="«vc.name»ViewControllerID" eventType="touchUpInside" id="«vc.name»AudioPlayerPlayButtonTouchUpInsideActionID"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="«vc.name»AudioPlayerPauseButton">
-                                <rect key="frame" x="83" y="«y»" width="69" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Pause">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="pause:" destination="«vc.name»ViewControllerID" eventType="touchUpInside" id="«vc.name»AudioPlayerPauseButtonTouchUpInsideActionID"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="«vc.name»AudioPlayerStopButton">
-                                <rect key="frame" x="160" y="«y»" width="58" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Stop">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="stop:" destination="«vc.name»ViewControllerID" eventType="touchUpInside" id="«vc.name»AudioPlayerStopButtonTouchUpInsideActionID"/>
-                                </connections>
-                            </button>
-                            «ENDLET-»
+		                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="«vc.audioPlayer.id»">
+		                    	<rect key="frame" x="«vc.audioPlayer.posX.toInteger()»" y="«vc.audioPlayer.posY.toInteger() + 62»" width="«vc.audioPlayer.width.toInteger()»" height="«vc.audioPlayer.height.toInteger()»"/>
+								<autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                	<button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="«vc.name»AudioPlayerPlayButton">
+                                        <rect key="frame" x="0.0" y="7" width="31" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Play">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="play:" destination="«vc.name»ViewControllerID" eventType="touchUpInside" id="«vc.name»AudioPlayerPlayButtonTouchUpInsideActionID"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="«vc.name»AudioPlayerPauseButton">
+                                        <rect key="frame" x="77" y="7" width="44" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Pause">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="pause:" destination="«vc.name»ViewControllerID" eventType="touchUpInside" id="«vc.name»AudioPlayerPauseButtonTouchUpInsideActionID"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="«vc.name»AudioPlayerStopButton">
+                                        <rect key="frame" x="164" y="7" width="34" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Stop">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="stop:" destination="«vc.name»ViewControllerID" eventType="touchUpInside" id="«vc.name»AudioPlayerStopButtonTouchUpInsideActionID"/>
+                                        </connections>
+                                    </button>
+		                        </subviews>
+		                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                	«EXPAND ios_templates::ViewConstraints::innerConstraints FOR vc.audioPlayer-»
+                                    <constraint firstAttribute="centerX" secondItem="«vc.name»AudioPlayerPauseButton" secondAttribute="centerX" id="«vc.name»CentXPauseConst"/>
+                                    <constraint firstAttribute="centerY" secondItem="«vc.name»AudioPlayerPauseButton" secondAttribute="centerY" id="«vc.name»CentYPauseConst"/>
+                                    <constraint firstAttribute="leading" secondItem="«vc.name»AudioPlayerPlayButton"  secondAttribute="leading" id="«vc.name»LeadPlayConst"/>
+                                    <constraint firstAttribute="centerY" secondItem="«vc.name»AudioPlayerStopButton" secondAttribute="centerY" id="«vc.name»CentYStopConst"/>
+                                    <constraint firstAttribute="centerY" secondItem="«vc.name»AudioPlayerPlayButton" secondAttribute="centerY" id="«vc.name»CentYPlayConst"/>
+                                    <constraint firstAttribute="trailing" secondItem="«vc.name»AudioPlayerStopButton" secondAttribute="trailing" id="«vc.name»TrailStopConst"/>
+                                </constraints>
+                            </view>
 		                    «ENDIF-»
 		                    «FOREACH vc.textViews AS tv-»
 		                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="«tv.textAlign.toString()»" text="«tv.content»" id="«tv.id»">
@@ -409,5 +411,7 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
 «DEFINE uiControl FOR UiControl-»
 <rect key="frame" x="«posX.toInteger()»" y="«posY.toInteger() + 62»" width="«width.toInteger()»" height="«height.toInteger()»"/>
 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-«EXPAND ios_templates::ViewConstraints::innerConstraints FOR this-»		
+<constraints>
+	«EXPAND ios_templates::ViewConstraints::innerConstraints FOR this-»	
+</constraints>
 «ENDDEFINE-»

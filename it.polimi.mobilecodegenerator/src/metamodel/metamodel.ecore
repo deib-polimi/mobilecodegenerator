@@ -182,9 +182,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="viewController" lowerBound="1"
         eType="#//ViewController" changeable="false" eOpposite="#//ViewController/videocameraController"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="AudioPlayer">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        defaultValueLiteral=""/>
+  <eClassifiers xsi:type="ecore:EClass" name="AudioPlayer" eSuperTypes="#//UiControl">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="sourceType" lowerBound="1"
         eType="#//SourceType"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="fileUri" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"

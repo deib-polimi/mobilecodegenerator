@@ -61,8 +61,10 @@ public class JavaChecks {
 		String regex = "^[a-zA-Z][a-zA-Z0-9_]*"; //empty string is not valid too
 		ArrayList<String> invalidIds = new ArrayList<String>();
 		for(String id : ids){
-			if(!id.matches(regex))
+			if(!id.matches(regex)) {
 				invalidIds.add(id);
+				System.out.println("-->" + id);
+			}
 		}
 		return invalidIds;
 	}

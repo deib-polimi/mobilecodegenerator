@@ -40,29 +40,29 @@
 	«IF audioRecorder!=null-»
 	«ENDIF-»
 	«IF audioPlayer!=null-»
+		«EXPAND siblingConstraints FOR audioPlayer»
+        «EXPAND parentContraints FOR audioPlayer»
 	«ENDIF-»
 </constraints>
 «ENDDEFINE-»
 «DEFINE innerConstraints FOR UiControl-»
-<constraints>
-	«IF ((alignTop == null &&
-		!alignParentTop &&
-		below == null) ||
-		(alignBottom == null &&
-		!alignParentBottom &&
-		above == null))-»
-		<constraint firstAttribute="height" constant="«height.toInteger()»" id="«id»-height"/>
-	«ENDIF-»
-	«IF ((alignStart == null &&
-		!alignParentStart &&
-		toEndOf == null) ||
-		(alignEnd == null &&
-		!alignParentEnd &&
-		toStartOf == null))
-		-»
-		<constraint firstAttribute="width" constant="«width.toInteger()»" id="«id»-width"/>
-	«ENDIF-»
-</constraints>
+«IF ((alignTop == null &&
+	!alignParentTop &&
+	below == null) ||
+	(alignBottom == null &&
+	!alignParentBottom &&
+	above == null))-»
+	<constraint firstAttribute="height" constant="«height.toInteger()»" id="«id»-height"/>
+«ENDIF-»
+«IF ((alignStart == null &&
+	!alignParentStart &&
+	toEndOf == null) ||
+	(alignEnd == null &&
+	!alignParentEnd &&
+	toStartOf == null))
+	-»
+	<constraint firstAttribute="width" constant="«width.toInteger()»" id="«id»-width"/>
+«ENDIF-»
 «ENDDEFINE-»
 
 
