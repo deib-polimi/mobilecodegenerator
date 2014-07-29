@@ -46,8 +46,7 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
 	«ENDFOREACH-»
 	«IF photocameraController!=null-»
 	<Button
-        android:id="@+id/fotocameraButton"
-        «EXPAND uiControl FOR audioPlayer»
+        «EXPAND uiControl FOR photocameraController»
         android:text="Fotocamera" />
 	«ENDIF-»
 	«IF videocameraController!=null-»

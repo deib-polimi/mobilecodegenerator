@@ -28,7 +28,7 @@ private static final int VIDEO_CAPTURE_ACTIVITY_REQUEST_CODE = 200;
 
 «DEFINE onCreate FOR ViewController-»
 «IF photocameraController!=null-»
-fotocameraButton = (Button) this.findViewById(R.id.fotocameraButton);
+fotocameraButton = (Button) this.findViewById(R.id.«photocameraController.id»);
 fotocameraButton.setOnClickListener(new OnClickListener() {
 	@Override
 	public void onClick(View v) {
