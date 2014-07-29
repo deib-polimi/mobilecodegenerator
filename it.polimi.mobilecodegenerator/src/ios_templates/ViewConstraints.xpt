@@ -38,6 +38,8 @@
         «EXPAND parentContraints FOR photocameraController»
 	«ENDIF-»
 	«IF videocameraController!=null-»
+		«EXPAND siblingConstraints FOR videocameraController»
+        «EXPAND parentContraints FOR videocameraController»
 	«ENDIF-»
 	«IF audioRecorder!=null-»
 		«EXPAND siblingConstraints FOR audioRecorder»
