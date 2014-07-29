@@ -40,6 +40,8 @@
 	«IF videocameraController!=null-»
 	«ENDIF-»
 	«IF audioRecorder!=null-»
+		«EXPAND siblingConstraints FOR audioRecorder»
+        «EXPAND parentContraints FOR audioRecorder»
 	«ENDIF-»
 	«IF audioPlayer!=null-»
 		«EXPAND siblingConstraints FOR audioPlayer»
