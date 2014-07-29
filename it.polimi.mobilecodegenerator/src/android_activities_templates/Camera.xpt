@@ -39,7 +39,7 @@ fotocameraButton.setOnClickListener(new OnClickListener() {
 «ENDIF-»
 
 «IF videocameraController!=null-»
-videocameraButton = (Button) this.findViewById(R.id.videocameraButton);
+videocameraButton = (Button) this.findViewById(R.id.«videocameraController.id»);
 videocameraButton.setOnClickListener(new OnClickListener() {
 	@Override
 	public void onClick(View v) {
