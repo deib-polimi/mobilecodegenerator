@@ -34,6 +34,8 @@
         «EXPAND parentContraints FOR gv»
     «ENDFOREACH-»
     «IF photocameraController!=null-»
+    	«EXPAND siblingConstraints FOR photocameraController»
+        «EXPAND parentContraints FOR photocameraController»
 	«ENDIF-»
 	«IF videocameraController!=null-»
 	«ENDIF-»
