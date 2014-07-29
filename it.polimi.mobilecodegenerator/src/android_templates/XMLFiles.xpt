@@ -110,9 +110,7 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
     «ENDFOREACH-»
     «IF videoView!=null-»
 	<VideoView
-	    android:id="@+id/«videoView.id»"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"/>
+	    «EXPAND uiControl FOR videoView» />
     «ENDIF-»
 	«FOREACH webViews AS wv-»
 	<WebView
