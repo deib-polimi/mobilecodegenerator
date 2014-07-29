@@ -78,7 +78,7 @@ this.stopButton.setOnClickListener(new OnClickListener() {
 });
 «ENDIF-»
 «IF audioRecorder!=null-»
-recordButton = (Button) this.findViewById(R.id.audioRecorderRecordButton);
+recordButton = (Button) this.findViewById(R.id.«audioRecorder.id»);
 recordButton.setText("Rec");
 recordButton.setOnClickListener(new OnClickListener() {
     public void onClick(View v) {
