@@ -74,44 +74,44 @@
 
 «DEFINE siblingConstraints FOR UiControl-»
 	«IF alignTop != null-»
-    <constraint firstItem="«id»" firstAttribute="top" secondItem="«alignTop.id»" secondAttribute="top" priority="750" constant="«(marginTop - alignTop.marginTop).toInteger()»" id="«id»-align-top"/>
+    <constraint firstItem="«id»" firstAttribute="top" secondItem="«alignTop.id»" secondAttribute="top" priority="750" constant="«((marginTop + paddingTop) - alignTop.marginTop).toInteger()»" id="«id»-align-top"/>
     «ENDIF-»
     «IF alignBottom != null-»
-    <constraint firstItem="«id»" firstAttribute="bottom" secondItem="«alignBottom.id»" secondAttribute="bottom" priority="750" constant="«(alignBottom.marginBottom - marginBottom).toInteger()»" id="«id»-align-bottom"/>
+    <constraint firstItem="«id»" firstAttribute="bottom" secondItem="«alignBottom.id»" secondAttribute="bottom" priority="750" constant="«(alignBottom.marginBottom - (marginBottom + paddingBottom)).toInteger()»" id="«id»-align-bottom"/>
     «ENDIF-»
     «IF alignStart != null-»
-    <constraint firstItem="«id»" firstAttribute="leading" secondItem="«alignStart.id»" secondAttribute="leading" priority="750" constant="«(marginStart - alignStart.marginStart).toInteger()»" id="«id»-align-start"/>
+    <constraint firstItem="«id»" firstAttribute="leading" secondItem="«alignStart.id»" secondAttribute="leading" priority="750" constant="«((marginStart + paddingStart) - alignStart.marginStart).toInteger()»" id="«id»-align-start"/>
     «ENDIF-»
     «IF alignEnd != null-»
-    <constraint firstItem="«id»" firstAttribute="trailing" secondItem="«alignEnd.id»" secondAttribute="trailing" priority="750" constant="«(alignEnd.marginEnd - marginEnd).toInteger()»" id="«id»-align-end"/>
+    <constraint firstItem="«id»" firstAttribute="trailing" secondItem="«alignEnd.id»" secondAttribute="trailing" priority="750" constant="«(alignEnd.marginEnd - (marginEnd + paddingEnd)).toInteger()»" id="«id»-align-end"/>
     «ENDIF-»
     «IF below != null-»
-    <constraint firstItem="«id»" firstAttribute="top" secondItem="«below.id»" secondAttribute="bottom" priority="750" constant="«(marginTop + below.marginBottom).toInteger()»" id="«id»-bottom"/>
+    <constraint firstItem="«id»" firstAttribute="top" secondItem="«below.id»" secondAttribute="bottom" priority="750" constant="«((marginTop + paddingTop) + below.marginBottom).toInteger()»" id="«id»-bottom"/>
     «ENDIF-»
     «IF above != null-»
-    <constraint firstItem="«id»" firstAttribute="bottom" secondItem="«above.id»" secondAttribute="top" priority="750" constant="«(-marginBottom - above.marginTop).toInteger()»" id="«id»-above"/>
+    <constraint firstItem="«id»" firstAttribute="bottom" secondItem="«above.id»" secondAttribute="top" priority="750" constant="«(-(marginBottom + paddingBottom) - above.marginTop).toInteger()»" id="«id»-above"/>
     «ENDIF-»
     «IF toStartOf != null-»
-    <constraint firstItem="«id»" firstAttribute="trailing" secondItem="«toStartOf.id»" secondAttribute="leading" priority="750" constant="«(-marginEnd - toStartOf.marginStart).toInteger()»" id="«id»-to-start-of"/>
+    <constraint firstItem="«id»" firstAttribute="trailing" secondItem="«toStartOf.id»" secondAttribute="leading" priority="750" constant="«(-(marginEnd + paddingEnd) - toStartOf.marginStart).toInteger()»" id="«id»-to-start-of"/>
     «ENDIF-»
     «IF toEndOf != null-»
-    <constraint firstItem="«id»" firstAttribute="leading" secondItem="«toEndOf.id»" secondAttribute="trailing" priority="750" constant="«(marginStart + toEndOf.marginEnd).toInteger()»" id="«id»-to-end-of"/>
+    <constraint firstItem="«id»" firstAttribute="leading" secondItem="«toEndOf.id»" secondAttribute="trailing" priority="750" constant="«((marginStart + paddingStart) + toEndOf.marginEnd).toInteger()»" id="«id»-to-end-of"/>
     «ENDIF-»
 «ENDDEFINE-»
 
 
 «DEFINE parentContraints FOR UiControl-»
 «IF alignParentTop-»
-<constraint firstItem="«id»" firstAttribute="top" secondItem="«viewController.name»-guide-top" secondAttribute="top" constant="«marginTop.toInteger()»" id="«id»-alignParentTop"/>
+<constraint firstItem="«id»" firstAttribute="top" secondItem="«viewController.name»-guide-top" secondAttribute="top" constant="«(marginTop + paddingTop).toInteger()»" id="«id»-alignParentTop"/>
 «ENDIF-»
 «IF alignParentBottom-»
-<constraint firstItem="«id»" firstAttribute="bottom" secondItem="«viewController.name»-guide-bottom" secondAttribute="bottom" constant="«-marginBottom.toInteger()»" id="«id»-alignParentBottom"/>
+<constraint firstItem="«id»" firstAttribute="bottom" secondItem="«viewController.name»-guide-bottom" secondAttribute="bottom" constant="«-(marginBottom + paddingBottom).toInteger()»" id="«id»-alignParentBottom"/>
 «ENDIF-»
 «IF alignParentStart-»
-<constraint firstItem="«id»" firstAttribute="leading" secondItem="«viewController.name»ViewID" secondAttribute="leading" constant="«marginStart.toInteger()»" id="«id»-alignParentStart"/>
+<constraint firstItem="«id»" firstAttribute="leading" secondItem="«viewController.name»ViewID" secondAttribute="leading" constant="«(marginStart + paddingStart).toInteger()»" id="«id»-alignParentStart"/>
 «ENDIF-»
 «IF alignParentEnd-»
-<constraint firstItem="«id»" firstAttribute="trailing" secondItem="«viewController.name»ViewID" secondAttribute="trailing" constant="«-marginEnd.toInteger()»" id="«id»-alignParentEnd"/>
+<constraint firstItem="«id»" firstAttribute="trailing" secondItem="«viewController.name»ViewID" secondAttribute="trailing" constant="«-(marginEnd + paddingEnd).toInteger()»" id="«id»-alignParentEnd"/>
 «ENDIF-»
 «IF alignTop == null &&
 	alignBottom == null &&
@@ -120,7 +120,7 @@
 	!alignParentTop &&
 	!alignParentBottom
 	-»
-<constraint firstItem="«id»" firstAttribute="top" secondItem="«viewController.name»-guide-top" secondAttribute="top" constant="«posY.toInteger() + marginTop.toInteger()»" id="«id»-posY"/>
+<constraint firstItem="«id»" firstAttribute="top" secondItem="«viewController.name»-guide-top" secondAttribute="top" constant="«posY.toInteger() + marginTop.toInteger() + paddingTop.toInteger()»" id="«id»-posY"/>
 «ENDIF-»
 
 «IF alignStart == null &&
@@ -130,6 +130,6 @@
 	!alignParentStart &&
 	!alignParentEnd
 	-»
-<constraint firstItem="«id»" firstAttribute="leading" secondItem="«viewController.name»ViewID" secondAttribute="leading" constant="«posX.toInteger() + marginStart.toInteger()»" id="«id»-posX"/>
+<constraint firstItem="«id»" firstAttribute="leading" secondItem="«viewController.name»ViewID" secondAttribute="leading" constant="«posX.toInteger() + marginStart.toInteger() + paddingStart.toInteger()»" id="«id»-posX"/>
 «ENDIF-»
 «ENDDEFINE-»

@@ -2,14 +2,27 @@
 <metamodel:Application xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:metamodel="http://metamodel/1.0" xsi:schemaLocation="http://metamodel/1.0 ../metamodel/metamodel.ecore" name="newApp" companyIdentifier="it.polimi">
-    <viewControllers name="ciao" launcher="true">
-        <alertDialogs id="cqerAlertDialog" title="title" message="message"/>
-        <alertDialogs id="guhqAlertDialogasdsa" title="titledasd" message="asdasdas"/>
-        <alertDialogs id="eurAlertDialog" title="title" message="message"/>
-        <progressDialogs id="mdflProgressDialog" title="title" message="message" spinner="false"/>
-        <progressDialogs id="pvkProgressDialog" title="title" message="message" spinner="true"/>
-        <progressDialogs id="umjnProgressDialog" title="title" message="message" spinner="true"/>
+    xmlns:metamodel="http://metamodel/1.0" xsi:schemaLocation="http://metamodel/1.0 ../metamodel/metamodel.ecore" name="newd" companyIdentifier="it.polimi">
+    <viewControllers name="newView" launcher="true">
+        <audioPlayer id="sllAudioPlayer" posX="19.487179487179485" posY="16.338370343764055" paddingTop="0" paddingBottom="0" paddingStart="0" paddingEnd="0" marginTop="0" marginBottom="0" marginStart="20" marginEnd="20" alignParentTop="true" alignParentBottom="false" alignParentStart="true" alignParentEnd="true" width="200" height="44" viewController="//@viewControllers[name='newView']" sourceType="hardwareFile" fileUri=""/>
+        <audioRecorder id="pcrfAudioRecorder" posX="40" posY="124.62614012793671" paddingTop="0" paddingBottom="0" paddingStart="0" paddingEnd="0" marginTop="0" marginBottom="0" marginStart="0" marginEnd="0" alignParentTop="false" alignParentBottom="false" alignParentStart="false" alignParentEnd="false" width="130" height="40" alignStart="//@viewControllers[name='newView']/@audioPlayer" alignEnd="//@viewControllers[name='newView']/@audioPlayer" below="//@viewControllers[name='newView']/@audioPlayer" viewController="//@viewControllers[name='newView']" audioPlayerId="sllAudioPlayer"/>
+        <imageViews id="lImageView" posX="31.90119998713881" posY="196.9210647180306" paddingTop="0" paddingBottom="0" paddingStart="0" paddingEnd="0" marginTop="15" marginBottom="15" marginStart="15" marginEnd="15" alignParentTop="false" alignParentBottom="true" alignParentStart="true" alignParentEnd="true" width="300" height="200" viewController="//@viewControllers[name='newView']" sourceType="remoteFile" fileUri="http://www.hdwallpapers.net/slider/img/abstract_wallpaper.jpg"/>
+        <listViews id="gListView" posX="127.60479994855524" posY="367.1083081297606" paddingTop="0" paddingBottom="0" paddingStart="0" paddingEnd="0" marginTop="5" marginBottom="5" marginStart="0" marginEnd="0" alignParentTop="false" alignParentBottom="false" alignParentStart="false" alignParentEnd="false" width="130" height="200" alignTop="//@viewControllers[name='newView']/@imageViews[id='lImageView']" alignBottom="//@viewControllers[name='newView']/@imageViews[id='lImageView']" viewController="//@viewControllers[name='newView']">
+            <clickListener>
+                <navigation destination="secondView"/>
+            </clickListener>
+            <listViewCells title="list1"/>
+            <listViewCells title="list2"/>
+            <listViewCells title="list3"/>
+        </listViews>
     </viewControllers>
-    <menu/>
+    <viewControllers name="secondView" launcher="false"/>
+    <menu>
+        <menuItems title="FirstPage" id="FirstPage">
+            <navigation destination="newView"/>
+        </menuItems>
+        <menuItems title="SecondPage" id="SecondPage">
+            <navigation destination="secondView"/>
+        </menuItems>
+    </menu>
 </metamodel:Application>
