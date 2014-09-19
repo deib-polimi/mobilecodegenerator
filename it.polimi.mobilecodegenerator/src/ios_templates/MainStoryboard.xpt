@@ -53,6 +53,11 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
 		        		<rect key="frame" x="0.0" y="64" width="320" height="504"/>
 		                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
 		                <subviews>
+		                    «FOREACH vc.imageViews AS iv-»
+		                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" «IF iv.sourceType.toString().matches("localFile") && !iv.fileUri.matches("")-»image="«iv.fileUri»"«ENDIF-» id="«iv.id»">
+                                «EXPAND uiControl FOR iv»
+                            </imageView>
+		                    «ENDFOREACH-»
 		                	«FOREACH vc.buttons AS b-»
 		                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="«b.id»">
 		                    	«EXPAND uiControl FOR b»
@@ -177,7 +182,7 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
 		                    «FOREACH vc.textViews AS tv-»
 		                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="«tv.textAlign.toString()»" text="«tv.content»" id="«tv.id»">
 		                        «EXPAND uiControl FOR tv»
-		                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+		                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0" colorSpace="calibratedRGB"/>
 		                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
 		                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
 		                    </textView>
@@ -189,11 +194,6 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-		                    «ENDFOREACH-»
-		                    «FOREACH vc.imageViews AS iv-»
-		                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" «IF iv.sourceType.toString().matches("localFile") && !iv.fileUri.matches("")-»image="«iv.fileUri»"«ENDIF-» id="«iv.id»">
-                                «EXPAND uiControl FOR iv»
-                            </imageView>
 		                    «ENDFOREACH-»
 		                    «IF vc.videoView!=null-»
 		                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="«vc.videoView.id»">

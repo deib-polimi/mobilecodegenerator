@@ -38,7 +38,15 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-	
+    
+	«FOREACH imageViews AS iv-»
+	<ImageView
+	    «EXPAND uiControl FOR iv»
+	    «IF iv.sourceType.toString().matches("localFile") && !iv.fileUri.matches("")-»
+	    android:src="@drawable/«iv.fileUri.split("\\.").get(0)»"
+	    «ENDIF-»
+	/>
+    «ENDFOREACH-»
 	«FOREACH buttons AS b-»
 	<Button
         «EXPAND uiControl FOR b»
@@ -99,14 +107,6 @@ along with it.polimi.mobilecodegenerator. If not, see <http://www.gnu.org/licens
         android:inputType="textMultiLine"
         android:hint="«et.placeholder»" >
     </EditText>
-    «ENDFOREACH-»
-	«FOREACH imageViews AS iv-»
-	<ImageView
-	    «EXPAND uiControl FOR iv»
-	    «IF iv.sourceType.toString().matches("localFile") && !iv.fileUri.matches("")-»
-	    android:src="@drawable/«iv.fileUri.split("\\.").get(0)»"
-	    «ENDIF-»
-	/>
     «ENDFOREACH-»
     «IF videoView!=null-»
 	<VideoView
